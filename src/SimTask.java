@@ -1,9 +1,19 @@
-import javax.swing.JApplet;
+import java.util.TimerTask;
 
-public class SimTask extends JApplet {
+public class SimTask extends TimerTask {
+    private SimEngine a;
+    public SpringApplet b;
+    private double t;
 
-    public void run()
+    SimTask(SimEngine E, SpringApplet S, double time)
     {
+        b = S;
+        a = E;
+        t = time;
+    }
+    @Override public void run()
+    {a.timeStep(t);
+    b.repaint();
 
     }
 
